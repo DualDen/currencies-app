@@ -1,0 +1,16 @@
+.header-link{
+    text-decoration: none;
+    color: #fff;
+    transition: .3s;
+}
+.header{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 25px;
+    font-weight: 600;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+.header-link:hover{
+    color: #000
+}

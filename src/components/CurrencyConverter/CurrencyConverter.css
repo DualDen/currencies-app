@@ -1,0 +1,48 @@
+.converter-item{
+    margin-bottom: 50px;
+}
+.converter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+.ant-select.css-dev-only-do-not-override-1km3mtt.ant-select-single.ant-select-show-arrow{
+    width: 100%;
+    margin-top: 20px;
+}
+.converter-item input{
+    margin-right: 10px;
+}
+.switch-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 45px;
+}
+.converter :where(.css-dev-only-do-not-override-1km3mtt).ant-input-lg{
+    border-radius: 20px;
+    font-size: 50px;
+}
+.converter :where(.css-dev-only-do-not-override-1km3mtt).ant-select-single.ant-select-lg .ant-select-selector{
+    border-radius: 20px;
+    font-size: 45px;
+    height: 91px;
+    align-items: center;
+}
+.converter :where(.css-dev-only-do-not-override-1km3mtt).ant-select .ant-select-arrow{
+    font-size: 21px;
+}
+.converter-image{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.converter span.ant-select-selection-item{
+    display: flex;
+    align-items: center;
+}
+.ant-select-item-option-content{
+    display: flex;
+}

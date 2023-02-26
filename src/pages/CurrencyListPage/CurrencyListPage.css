@@ -1,0 +1,14 @@
+.currency-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.container{
+    width: 1340px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+span.ant-select-selection-item{
+    display: flex;
+}
