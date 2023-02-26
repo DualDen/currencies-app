@@ -10,7 +10,7 @@ export const fetchCurrencyConverter = createAsyncThunk<
   "currencyConverter/fetchCurrencyConverter",
   async ({ from, to, amount }, thunkAPI) => {
     try {
-      const API_KEY = "0BJORBkQDF0xbHVvtL0126umLwGjTEdR";
+      const API_KEY = "X89HNQxl6xe0wpWanNpCptRNDEkjtvWi";
       const response = await axios.get<ICurrencyConverter>(
         `https://api.apilayer.com/currency_data/convert?from=${from}&to=${to}&amount=${amount}&apikey=${API_KEY}`
       );

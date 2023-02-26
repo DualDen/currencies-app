@@ -10,7 +10,7 @@ export const fetchCurrencyList = createAsyncThunk<
   "currencyList/fetchCurrencyList",
   async ({ currencies, source }, thunkAPI) => {
     try {
-      const API_KEY = "0BJORBkQDF0xbHVvtL0126umLwGjTEdR";
+      const API_KEY = "X89HNQxl6xe0wpWanNpCptRNDEkjtvWi";
       const response = await axios.get<ICurrencyList>(
         `https://api.apilayer.com/currency_data/live?source=${source}&currencies=${currencies}&apikey=${API_KEY}`
       );
