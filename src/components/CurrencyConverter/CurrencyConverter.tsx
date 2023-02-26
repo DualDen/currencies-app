@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, {ChangeEvent, FC, useEffect, useState} from "react";
 import "./CurrencyConverter.css";
 import { Input, Select } from "antd";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
@@ -35,7 +35,7 @@ const CurrencyConverter: FC = () => {
           <div className="converter-item">
             <Input
               type={"number"}
-              onChange={(e) => {
+              onChange={(e:ChangeEvent<HTMLInputElement>) => {
                 setFirstCurrencyValue(Number(e.target.value));
               }}
               value={firstCurrencyValue}
@@ -44,7 +44,7 @@ const CurrencyConverter: FC = () => {
             <Select
               size="large"
               defaultValue={firstCurrency}
-              onChange={(e) => {
+              onChange={(e:string) => {
                 setFirstCurrency(e);
               }}
             >
@@ -120,7 +120,7 @@ const CurrencyConverter: FC = () => {
             <Select
               size="large"
               defaultValue={secondCurrency}
-              onChange={(e) => {
+              onChange={(e:string) => {
                 setSecondCurrency(e);
               }}
             >

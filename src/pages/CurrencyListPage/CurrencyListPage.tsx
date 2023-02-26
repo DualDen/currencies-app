@@ -16,13 +16,12 @@ const CurrencyListPage: FC = () => {
     .split(",")
     .filter((i) => i != currentCurrency)
     .join(",");
+  const queryParams = () => ({
+    currencies: filteredCurrencies,
+    source: currentCurrency,
+  });
   useEffect(() => {
-    dispatch(
-      fetchCurrencyList({
-        currencies: filteredCurrencies,
-        source: currentCurrency,
-      })
-    );
+    dispatch(fetchCurrencyList(queryParams()));
   }, [currentCurrency]);
   const { quotes, isLoading, error } = useAppSelector(
     (state) => state.currencyList
