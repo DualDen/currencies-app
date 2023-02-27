@@ -1,32 +1,38 @@
 export const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   devtool: "inline-source-map",
   output: {
-    filename: "bundle.ts",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
     compress: true,
     port: 3000,
+    open: true,
+    hot: true,
   },
-  plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],
+  plugins: [
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      filename: "index.html",
+    }),
+  ],
   resolve: {
-    extensions: [".tsx", ".ts",".jsx",".js"],
+    extensions: [".tsx", ".ts", ".jsx", ".js"],
     fallback: {
-      "os": require.resolve("os-browserify/browser"),
-      "path": require.resolve("path-browserify"),
-      "fs": false,
-      "child_process": false,
-    }
+      os: require.resolve("os-browserify/browser"),
+      path: require.resolve("path-browserify"),
+      fs: false,
+      child_process: false,
+    },
   },
   performance: {
-    hints: false
+    hints: false,
   },
 
   module: {
@@ -55,6 +61,11 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+        exclude: /node_modules/,
+        use: ["file-loader?name=[name].[ext]"],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

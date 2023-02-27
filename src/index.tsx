@@ -4,12 +4,13 @@ import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { setupStore } from "./store/store";
 import { router } from "./utils/router";
+import App from "./App";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <Provider store={setupStore()}>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}  fallbackElement={<App/>}/>
   </Provider>
 );
