@@ -18,6 +18,12 @@ module.exports = {
   plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],
   resolve: {
     extensions: [".tsx", ".ts",".jsx",".js"],
+    fallback: {
+      "os": require.resolve("os-browserify/browser"),
+      "path": require.resolve("path-browserify"),
+      "fs": false,
+      "child_process": false,
+    }
   },
   performance: {
     hints: false
