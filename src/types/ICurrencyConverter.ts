@@ -1,5 +1,5 @@
 export interface ICurrencyConverter {
-  success: string;
+  success: boolean;
   info: ICurrencyConverterInfo;
   query: ICurrencyConverterQuery;
   result: number;

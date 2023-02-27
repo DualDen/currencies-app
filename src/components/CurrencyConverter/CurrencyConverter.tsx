@@ -7,6 +7,7 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import Loader from "../Loader/Loader";
 import arrows from "../../assets/two-arrows.svg";
 import { flags } from "../../utils/flags";
+import {act} from "@testing-library/react";
 
 const CurrencyConverter: FC = () => {
   const { quote, isLoading, error } = useAppSelector(
@@ -22,7 +23,7 @@ const CurrencyConverter: FC = () => {
     amount: 1,
   });
   useEffect(() => {
-    dispatch(fetchCurrencyConverter(queryParams()));
+      dispatch(fetchCurrencyConverter(queryParams()));
   }, [firstCurrency, secondCurrency]);
   const check = () => {
     if (isLoading) {
@@ -36,7 +37,9 @@ const CurrencyConverter: FC = () => {
             <Input
               type={"number"}
               onChange={(e:ChangeEvent<HTMLInputElement>) => {
-                setFirstCurrencyValue(Number(e.target.value));
+                act(() => {
+                  setFirstCurrencyValue(Number(e.target.value));
+                })
               }}
               value={firstCurrencyValue}
               size="large"
@@ -45,7 +48,9 @@ const CurrencyConverter: FC = () => {
               size="large"
               defaultValue={firstCurrency}
               onChange={(e:string) => {
-                setFirstCurrency(e);
+                act(() => {
+                  setFirstCurrency(e);
+                })
               }}
             >
               <Select.Option value="USD">
@@ -109,8 +114,10 @@ const CurrencyConverter: FC = () => {
           <button
             className="switch-button"
             onClick={() => {
-              setFirstCurrency(secondCurrency);
-              setSecondCurrency(firstCurrency);
+              act(() => {
+                setFirstCurrency(secondCurrency);
+                setSecondCurrency(firstCurrency);
+              })
             }}
           >
             <img src={arrows} alt="Switch" />

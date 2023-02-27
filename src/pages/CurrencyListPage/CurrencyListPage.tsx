@@ -7,6 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import CurrencyListItem from "../../components/CurrencyListItem/CurrencyListItem";
 import "./CurrencyListPage.css";
 import { flags } from "../../utils/flags";
+import {act} from "@testing-library/react";
 
 const CurrencyListPage: FC = () => {
   const [currentCurrency, setCurrentCurrency] = useState("USD");
@@ -21,7 +22,7 @@ const CurrencyListPage: FC = () => {
     source: currentCurrency,
   });
   useEffect(() => {
-    dispatch(fetchCurrencyList(queryParams()));
+      dispatch(fetchCurrencyList(queryParams()));
   }, [currentCurrency]);
   const { quotes, isLoading, error } = useAppSelector(
     (state) => state.currencyList
@@ -37,7 +38,9 @@ const CurrencyListPage: FC = () => {
           <Select
             defaultValue={currentCurrency}
             onChange={(e) => {
-              setCurrentCurrency(e);
+              act(() => {
+                setCurrentCurrency(e);
+              })
             }}
           >
             <Select.Option value="USD">
