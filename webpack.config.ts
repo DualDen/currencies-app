@@ -17,7 +17,10 @@ module.exports = {
   },
   plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],
   resolve: {
-    extensions: [".tsx", ".ts"],
+    extensions: [".tsx", ".ts",".jsx",".js"],
+  },
+  performance: {
+    hints: false
   },
 
   module: {
@@ -31,6 +34,7 @@ module.exports = {
             loader: "babel-loader",
             options: {
               presets: [
+                "@babel/preset-typescript",
                 "@babel/preset-env",
                 ["@babel/preset-react", { runtime: "automatic" }],
               ],
